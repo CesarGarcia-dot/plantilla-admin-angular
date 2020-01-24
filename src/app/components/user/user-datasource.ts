@@ -7,31 +7,32 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 // TODO: Replace this with your own data model type
 export interface UserItem {
   name: string;
+  action: string;
   id: number;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: UserItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  {id: 1, name: 'Hydrogen', action: '<button></button>'},
+  {id: 2, name: 'Helium', action: '<button></button>'},
+  {id: 3, name: 'Lithium', action: '<button></button>'},
+  {id: 4, name: 'Beryllium', action: '<button></button>'},
+  {id: 5, name: 'Boron', action: '<button></button>'},
+  {id: 6, name: 'Carbon', action: '<button></button>'},
+  {id: 7, name: 'Nitrogen', action: '<button></button>'},
+  {id: 8, name: 'Oxygen', action: '<button></button>'},
+  {id: 9, name: 'Fluorine', action: '<button></button>'},
+  {id: 10, name: 'Neon', action: '<button></button>'},
+  {id: 11, name: 'Sodium', action: '<button></button>'},
+  {id: 12, name: 'Magnesium',action: '<button></button>'},
+  {id: 13, name: 'Aluminum', action: '<button></button>'},
+  {id: 14, name: 'Silicon', action: '<button></button>'},
+  {id: 15, name: 'Phosphorus', action: '<button></button>'},
+  {id: 16, name: 'Sulfur', action: '<button></button>'},
+  {id: 17, name: 'Chlorine', action: '<button></button>'},
+  {id: 18, name: 'Argon', action: '<button></button>'},
+  {id: 19, name: 'Potassium', action: '<button></button>'},
+  {id: 20, name: 'Calcium', action: '<button></button>'},
 ];
 
 /**

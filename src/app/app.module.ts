@@ -23,6 +23,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { FormsComponent } from './components/forms/forms.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+//servicios
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -30,7 +39,9 @@ import { MatCardModule } from '@angular/material/card';
     AppComponent,
     NavComponent,
     UserComponent,
-    DashboardComponent
+    DashboardComponent,
+    FormsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +61,17 @@ import { MatCardModule } from '@angular/material/card';
     MatPaginatorModule,
     MatSortModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+     // import HttpClientModule after BrowserModule.
+     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

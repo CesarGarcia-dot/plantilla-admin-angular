@@ -1,8 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserComponent } from './components/user/user.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FormsComponent } from './components/forms/forms.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'home', component: DashboardComponent },
+  { path: 'forms', component: FormsComponent },
+  { path: 'users',        component: UserComponent },
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
