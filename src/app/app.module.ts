@@ -30,8 +30,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule }   from '@angular/forms';
+
 //servicios
 import { UserService } from './services/user.service';
+import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
 
 
 @NgModule({
@@ -41,7 +45,8 @@ import { UserService } from './services/user.service';
     UserComponent,
     DashboardComponent,
     FormsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DialogboxComponent
   ],
   imports: [
     BrowserModule,
@@ -66,11 +71,16 @@ import { UserService } from './services/user.service';
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    FormsModule,
      // import HttpClientModule after BrowserModule.
      HttpClientModule,
   ],
   providers: [
     UserService
+  ],
+  entryComponents: [
+    DialogboxComponent
   ],
   bootstrap: [AppComponent]
 })

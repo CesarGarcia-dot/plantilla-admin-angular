@@ -10,21 +10,24 @@ import { map } from 'rxjs/operators';
 })
 export class UserService {
 
+  //direccion de la api
   baseUrl = environment.apiUrl;
 
+  //declaracion de Http Client para traer datos
   constructor(private http: HttpClient) { }
 
-  getUsers(){
+  getUsers() {
     return this.http.get(this.baseUrl).pipe(
       map(res => res["payload"])
     );
   }
 
-  getUsers2():  Observable<User[]>{
+  //metodo para traer datos que funciono con mat table de angular material
+  getUsers2(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl);
   }
 
-
+  // metodo para aplicar paginacion y enviar datos de filtros 
   findUsers(
     courseId: number, filter = '', sortOrder = 'asc',
     pageNumber = 0, pageSize = 3): Observable<User[]> {

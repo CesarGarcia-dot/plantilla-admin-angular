@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/interfaces/user';
-import { UsersDataSource } from 'src/app/interfaces/userdatasource';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 
 
 
@@ -17,12 +18,12 @@ export class UserComponent implements AfterViewInit, OnInit {
 
   users: User[]; 
 
-  displayedColumns: string[] = ['id', 'name', 'username', 'email'];
+  displayedColumns: string[] = ['id', 'name', 'username', 'email', 'actions'];
   dataSource: MatTableDataSource<User>;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService,public dialog: MatDialog) { }
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(); // create new object
@@ -46,5 +47,43 @@ export class UserComponent implements AfterViewInit, OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+
+  openDialog(action,obj) {
+    obj.action = action;
+    const dialogRef = this.dialog.open(DialogboxComponent, {
+      width: '350px',
+      data:obj
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event == 'Add'){
+        // this.addRowData(result.data);
+      }else if(result.event == 'Update'){
+        this.updateRowData(result.data);
+      }else if(result.event == 'Delete'){
+        // this.deleteRowData(result.data);
+      }
+    });
+  }
+
+  // addRowData(row_obj){
+  //   var d = new Date();
+  //   this.dataSource.push({
+  //     id:d.getTime(),
+  //     name:row_obj.name
+  //   });
+  //   this.table.renderRows();
+    
+  // }
+  updateRowData(row_obj){
+   
+  }
+  // deleteRowData(row_obj){
+  //   this.dataSource = this.dataSource.filter((value,key)=>{
+  //     return value.id != row_obj.id;
+  //   });
+  // }
+
 
 }
