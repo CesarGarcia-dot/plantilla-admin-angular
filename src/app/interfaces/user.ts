@@ -7,6 +7,8 @@ export interface User {
     phone: string;
     website: string;
     company: [];
+    action: string;
+    picture: [];
 }
 
 //https://jsonplaceholder.typicode.com/users

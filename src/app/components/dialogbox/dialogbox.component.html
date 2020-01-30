@@ -2,10 +2,10 @@
 <h1 mat-dialog-title>Row Action :: <strong>{{action}}</strong></h1>
 <div mat-dialog-content>
   <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
-    <input placeholder="{{action}} Name" value="{{local_data.name}}" matInput [(ngModel)]="local_data.name" #local_data="ngModel" />
+    <input placeholder="{{action}} Name"  matInput [(ngModel)]="dataTransfer.name" #local_data="ngModel" />
   </mat-form-field>
   <ng-template #elseTemplate>
-    Sure to delete <b>{{local_data.name}}</b>?
+    Sure to delete <b>{{dataTransfer.name}}</b>?
   </ng-template>
 </div>
 <div mat-dialog-actions>

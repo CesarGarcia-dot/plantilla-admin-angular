@@ -7,13 +7,13 @@
         <mat-icon aria-hidden="false" aria-label="Example home icon">dashboard</mat-icon>Dashboard
       </mat-list-item>
       <mat-list-item routerLink="/users" routerLinkActive="active">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">account_box</mat-icon>Users
+        <mat-icon aria-hidden="false" aria-label="Example home icon">account_box</mat-icon>Tables
       </mat-list-item>
       <mat-list-item routerLink="/forms" routerLinkActive="active">
         <mat-icon aria-hidden="false" aria-label="Example home icon">assignment_turned_in</mat-icon>Forms
       </mat-list-item>
-      <mat-list-item>
-        <mat-icon aria-hidden="false" aria-label="Example home icon">dns</mat-icon>Tables
+      <mat-list-item routerLink="/cards" routerLinkActive="active">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">dns</mat-icon>Users
       </mat-list-item>
       <mat-list-item>
         <mat-icon aria-hidden="false" aria-label="Example home icon">language</mat-icon>Pages
@@ -68,7 +68,7 @@
       </mat-toolbar-row>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <div class="container">
+    <div class="container" style="padding: 10px">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

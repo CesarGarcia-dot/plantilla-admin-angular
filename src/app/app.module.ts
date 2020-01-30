@@ -36,6 +36,10 @@ import { FormsModule }   from '@angular/forms';
 //servicios
 import { UserService } from './services/user.service';
 import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
+import { CardUserComponent } from './components/card-user/card-user.component';
+
+//pagination
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -46,7 +50,8 @@ import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
     DashboardComponent,
     FormsComponent,
     PageNotFoundComponent,
-    DialogboxComponent
+    DialogboxComponent,
+    CardUserComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +80,8 @@ import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
     FormsModule,
      // import HttpClientModule after BrowserModule.
      HttpClientModule,
+    //  pagination
+    NgxPaginationModule,
   ],
   providers: [
     UserService

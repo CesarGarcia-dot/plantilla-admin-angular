@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import { map } from 'rxjs/operators';
+import { Photo } from '../interfaces/photo';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class UserService {
 
   //direccion de la api
   baseUrl = environment.apiUrl;
+  userUrl = 'https://jsonplaceholder.typicode.com/photos?_start=0&_limit=6';
 
   //declaracion de Http Client para traer datos
   constructor(private http: HttpClient) { }
@@ -27,6 +29,10 @@ export class UserService {
     return this.http.get<User[]>(this.baseUrl);
   }
 
+  //metodo para traer usuarios con fotos
+  getUsersPhotos(): Observable<Photo[]> {
+    return this.http.get<Photo[]>(this.userUrl);
+  }
   // metodo para aplicar paginacion y enviar datos de filtros 
   findUsers(
     courseId: number, filter = '', sortOrder = 'asc',
